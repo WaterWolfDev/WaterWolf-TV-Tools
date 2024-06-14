@@ -1,3 +1,6 @@
+# WaterWolf TV Tools 
+A graphics and template used in WaterWolfTV and MoistDogTV. base on SuperFlyTV's Graphics Data Definition. For using with [SuperConductor](https://github.com/SuperFlyTV/SuperConductor)
+
 # GDD - Graphics Data Definition
 
 [Link to this repo on github](https://github.com/superflytv/GraphicsDataDefinition/).
