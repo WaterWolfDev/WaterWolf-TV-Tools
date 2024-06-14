@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Ticker</title>
+	<script name="graphics-data-definition" type="application/json+gdd" src="ticker.json" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+			color: white;
+        }
+		img {
+			max-height:40px; 
+			max-width:100%;
+			object-fit: contain;
+			vertical-align: text-bottom;
+		}
+        @keyframes ticker {
+            0% {
+                transform: translate3d(0, 0, 0);
+                visibility: visible;
+            }
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        .ticker-wrap {
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
+            height: 4rem;
+            padding-left: 100%;
+            box-sizing: content-box;
+        }
+
+        .ticker-wrap .ticker {
+            height: 4rem;
+            line-height: 4rem;
+            white-space: nowrap;
+            padding-right: 110%;
+            box-sizing: content-box;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-name: ticker;
+            animation-duration: 60s;
+        }
+		
+		.ticker-in{
+			animation-iteration-count: 1;
+            animation-name: in;
+            animation-duration: 1.5s;
+			animation-fill-mode: forwards;
+		}
+		
+		@keyframes in {
+            0% {
+                top: 1080px;
+            }
+            100% {
+                top: 990px;
+            }
+        }
+		
+		.ticker-out{
+			animation-iteration-count: 1;
+            animation-name: out;
+            animation-duration: 1.5s;
+			animation-fill-mode: forwards;
+		}
+		
+		@keyframes out {
+            0% {
+                top: 990px;
+            }
+            100% {
+                top: 1080px;
+            }
+        }
+
+        .ticker__item {
+            display: inline-block;
+            padding: 0 7rem;
+            font-size: 40px;
+        }
+
+        .tick-body {
+			width: 100%;
+            float: right;
+            Height: 100px;
+            padding-top: 1rem;
+            overflow: hidden;
+			background-color:#000;
+			position:fixed;
+			top: 1080px;
+        }
+
+        .stock-ticker {
+            width: 100%;
+            height: 70px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+<div class="stock-ticker">
+    <div class="tick-body" id="ticker">
+        <marquee scrollamount=20>
+            <b><div class="ticker__item" id="inside_text"></div></b>
+        </marquee>
+    </div>
+</div>
+<script type="text/javascript">
+		var element = document.getElementById("ticker");
+
+      function update(data) {
+	    if (typeof data === "string") data = JSON.parse(data)
+        document.getElementById("inside_text").innerHTML = data.text0;
+      }
+
+		function play() {
+			element.classList.add("ticker-in");
+			element.classList.remove("ticker-out");
+		}
+		function stop() {
+			element.classList.add("ticker-out");
+			element.classList.remove("ticker-in");
+      }
+       //update({ text: "Hello world!" });
+       //play();
+       //setTimeout(() => {
+       //  stop();
+       //}, 10000);
+       //setTimeout(() => {
+       //  location.reload();
+       //}, 20000);
+</script>
+</body>
+</html>
