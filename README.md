@@ -1,5 +1,11 @@
 # WaterWolf TV Tools 
-A graphics and template used in WaterWolfTV and MoistDogTV. base on SuperFlyTV's Graphics Data Definition. For using with [SuperConductor](https://github.com/SuperFlyTV/SuperConductor)
+A graphics and template used in WaterWolfTV and MoistDogTV. base on SuperFlyTV's Graphics Data Definition. For using with [SuperConductor](https://github.com/SuperFlyTV/SuperConductor) and [casparCG](https://casparcg.com/)
+
+TODO:
+- Add custom graphic on oneline.html and twoline.html
+- Add proper TS Radio song name announcer as a separate file.
+- Fix bug that causing ticker scrolling to reset itself.
+
 
 # GDD - Graphics Data Definition
 
